@@ -1,0 +1,147 @@
+/* Fluid Background Animation */
+@keyframes fluidMovement {
+    0% { border-radius: 60% 40% 30% 70%/60% 30% 70% 40%; }
+    50% { border-radius: 30% 60% 70% 40%/50% 60% 30% 60%; }
+    100% { border-radius: 60% 40% 30% 70%/60% 30% 70% 40%; }
+}
+
+/* Floating Animation */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Slide In From Left */
+@keyframes slideInLeft {
+    from { transform: translateX(-50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* Slide In From Right */
+@keyframes slideInRight {
+    from { transform: translateX(50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* Scale Up Animation */
+@keyframes scaleUp {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Rotate Animation */
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Wave Animation */
+@keyframes wave {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    30% { transform: rotate(14deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+    60% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* Apply Animations */
+.hero-title .title-line {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.hero-title .title-line:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.hero-title .title-line:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.hero-title .title-line:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.hero-image {
+    animation: float 6s ease-in-out infinite;
+}
+
+.skill-category {
+    animation: scaleUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+.skill-category:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.skill-category:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.skill-category:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.timeline-item {
+    animation: fadeIn 0.8s ease forwards;
+    opacity: 0;
+}
+
+.timeline-item:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.timeline-item:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.timeline-item:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+/* Signature Animation */
+.signature path {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: signature 2s ease forwards;
+    animation-delay: 1s;
+}
+
+@keyframes signature {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Scroll Indicator Animation */
+.scroll-indicator:hover .scroll-dot:nth-child(2) {
+    animation: bounce 1s infinite;
+}
+
+.scroll-indicator:hover .scroll-dot:nth-child(1),
+.scroll-indicator:hover .scroll-dot:nth-child(3) {
+    animation: bounce 1s infinite 0.2s;
+}

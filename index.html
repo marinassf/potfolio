@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sophia Rivers | Fullstack Developer</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=DM+Serif+Display&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="fluid-background" id="fluid-bg"></div>
+
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">MS</span>
+                <span class="logo-text">Marina Santana</span>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle" id="themeToggle">
+                <span class="sun-icon"><i class="fas fa-sun"></i></span>
+                <span class="moon-icon"><i class="fas fa-moon"></i></span>
+            </button>
+            <div class="mobile-menu-btn" id="mobileMenuBtn">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span class="title-line">Creative</span>
+                        <span class="title-line">Fullstack</span>
+                        <span class="title-line">Developer</span>
+                    </h1>
+                    <p class="hero-subtitle">Building elegant solutions with technical excellence</p>
+                    <a href="#projects" class="btn btn-primary pulse">View My Work</a>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span class="scroll-dot"></span>
+                <span class="scroll-dot"></span>
+                <span class="scroll-dot"></span>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Hello! I'm Marina, a passionate fullstack developer with 5+ years of experience crafting
+                            digital experiences that blend technical precision with creative vision.</p>
+                        <p>My journey began in graphic design, which evolved into frontend development and eventually
+                            fullstack expertise. This unique background allows me to bridge the gap between aesthetics
+                            and functionality.</p>
+                        <p>When I'm not coding, you'll find me exploring new coffee shops, practicing aerial yoga, or
+                            contributing to open-source projects that empower women in tech.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="assets/profile.jpg" alt="Marina Santana" class="profile-image">
+                        <div class="signature">
+                            <svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10,30 Q25,10 40,30 T70,30 T100,30 T130,30 T160,30" stroke="#E75480"
+                                    stroke-width="2" fill="none" stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills" id="skills">
+            <div class="container">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3 class="category-title">Frontend</h3>
+                        <ul class="skill-list">
+                            <li><i class="fab fa-react"></i> React.js</li>
+                            <li><i class="fab fa-vuejs"></i> Vue.js</li>
+                            <li><i class="fab fa-js"></i> JavaScript (ES6+)</li>
+                            <li><i class="fab fa-html5"></i> HTML5</li>
+                            <li><i class="fab fa-css3-alt"></i> CSS3/Sass</li>
+                            <li><i class="fas fa-mobile-alt"></i> Responsive Design</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3 class="category-title">Backend</h3>
+                        <ul class="skill-list">
+                            <li><i class="fab fa-node-js"></i> Node.js</li>
+                            <li><i class="fas fa-database"></i> MongoDB</li>
+                            <li><i class="fas fa-database"></i> PostgreSQL</li>
+                            <li><i class="fab fa-python"></i> Python</li>
+                            <li><i class="fas fa-server"></i> RESTful APIs</li>
+                            <li><i class="fas fa-bolt"></i> GraphQL</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3 class="category-title">Tools & More</h3>
+                        <ul class="skill-list">
+                            <li><i class="fab fa-git-alt"></i> Git</li>
+                            <li><i class="fab fa-docker"></i> Docker</li>
+                            <li><i class="fab fa-aws"></i> AWS</li>
+                            <li><i class="fas fa-terminal"></i> CI/CD</li>
+                            <li><i class="fas fa-paint-brush"></i> Figma</li>
+                            <li><i class="fas fa-tasks"></i> Agile/Scrum</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="projects" id="projects">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="carousel">
+                    <button class="carousel-btn prev" id="prevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="carousel-track-container">
+                        <div class="carousel-track" id="track">
+                            <div class="carousel-slide current">
+                                <div class="project-card">
+                                    <div class="project-image">
+                                        <img src="assets/4673514.jpg" alt="E-commerce Platform">
+                                    </div>
+                                    <div class="project-info">
+                                        <h3>LuxeCart</h3>
+                                        <p>A premium e-commerce platform with AR product previews, built with React,
+                                            Node.js, and Stripe integration.</p>
+                                        <div class="project-tech">
+                                            <span>React</span>
+                                            <span>Node.js</span>
+                                            <span>MongoDB</span>
+                                        </div>
+                                        <a href="#" class="btn btn-outline">View Case Study</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="project-card">
+                                    <div class="project-image">
+                                        <img src="assets/images/project2.jpg" alt="Health Dashboard">
+                                    </div>
+                                    <div class="project-info">
+                                        <h3>VitaTrack</h3>
+                                        <p>Health monitoring dashboard with real-time data visualization and wearable
+                                            device integration.</p>
+                                        <div class="project-tech">
+                                            <span>Vue.js</span>
+                                            <span>Python</span>
+                                            <span>D3.js</span>
+                                        </div>
+                                        <a href="#" class="btn btn-outline">View Case Study</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="project-card">
+                                    <div class="project-image">
+                                        <img src="assets/images/project3.jpg" alt="Collaboration Tool">
+                                    </div>
+                                    <div class="project-info">
+                                        <h3>TeamFlow</h3>
+                                        <p>Real-time collaboration tool with video conferencing and interactive
+                                            whiteboard features.</p>
+                                        <div class="project-tech">
+                                            <span>WebRTC</span>
+                                            <span>Socket.io</span>
+                                            <span>PostgreSQL</span>
+                                        </div>
+                                        <a href="#" class="btn btn-outline">View Case Study</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-btn next" id="nextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="carousel-nav">
+                    <button class="carousel-indicator active" data-index="0"></button>
+                    <button class="carousel-indicator" data-index="1"></button>
+                    <button class="carousel-indicator" data-index="2"></button>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2 class="section-title">Let's Connect</h2>
+                <div class="contact-content">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required>
+                            <label for="name">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email">Email Address</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="4" required></textarea>
+                            <label for="message">Your Message</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                    <div class="contact-info">
+                        <p>Feel free to reach out for collaborations or just to say hello!</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                        </div>
+                        <div class="contact-details">
+                            <p><i class="fas fa-envelope"></i> hello@marinasantana.dev</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Based in São Paulo, Brazil</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-icon">MS</span>
+                    <span class="logo-text">Marina Santana</span>
+                </div>
+                <p class="footer-text">Crafting digital experiences with precision and creativity.</p>
+                <p class="copyright">&copy; 2025 Marina Santana. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/particles.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
