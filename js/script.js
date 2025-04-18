@@ -68,9 +68,96 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Typewriter Effect
+    const heroSubtitle = document.querySelector('.hero-subtitle');
+    if (heroSubtitle) {
+        const phrases = [
+            "Building elegant solutions with technical excellence",
+            "Crafting digital experiences with precision",
+            "Bridging design and development seamlessly"
+        ];
+        
+        let currentPhraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 80;
+        
+        function type() {
+            const currentPhrase = phrases[currentPhraseIndex];
+            
+            if (isDeleting) {
+                charIndex--;
+                heroSubtitle.textContent = currentPhrase.substring(0, charIndex);
+            } else {
+                charIndex++;
+                heroSubtitle.textContent = currentPhrase.substring(0, charIndex);
+            }
+            
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                setTimeout(type, 1500);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+                setTimeout(type, 500);
+            } else {
+                const speed = isDeleting ? 40 : typingSpeed;
+                setTimeout(type, speed);
+            }
+        }
+        
+        setTimeout(type, 1000);
+    }
+    
+    // Custom Cursor
+    class CustomCursor {
+        constructor() {
+            this.cursor = document.querySelector('.custom-cursor');
+            
+            if (this.cursor) {
+                this.init();
+            }
+        }
+        
+        init() {
+            document.addEventListener('mousemove', this.moveCursor.bind(this));
+            document.addEventListener('mousedown', this.activateCursor.bind(this));
+            document.addEventListener('mouseup', this.deactivateCursor.bind(this));
+            
+            const interactiveElements = document.querySelectorAll('a, button, [data-cursor-effect]');
+            interactiveElements.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    this.cursor.classList.add('active');
+                });
+                
+                el.addEventListener('mouseleave', () => {
+                    this.cursor.classList.remove('active');
+                });
+            });
+        }
+        
+        moveCursor(e) {
+            this.cursor.style.left = `${e.clientX}px`;
+            this.cursor.style.top = `${e.clientY}px`;
+        }
+        
+        activateCursor() {
+            this.cursor.classList.add('clicking');
+        }
+        
+        deactivateCursor() {
+            this.cursor.classList.remove('clicking');
+        }
+    }
+    
+    new CustomCursor();
+    
+    // Update copyright year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
     // Animate elements when they come into view
     const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.skill-category, .timeline-item, .project-card');
+        const elements = document.querySelectorAll('.skill-category, .project-card');
         
         elements.forEach(element => {
             const elementPosition = element.getBoundingClientRect().top;
@@ -84,87 +171,4 @@ document.addEventListener('DOMContentLoaded', function() {
     
     window.addEventListener('scroll', animateOnScroll);
     animateOnScroll(); // Run once on page load
-    
-    // Initialize fluid background
-    initFluidBackground();
 });
-
-// Fluid Background with Connecting Particles
-function initFluidBackground() {
-    const canvas = document.createElement('canvas');
-    const fluidBg = document.getElementById('fluid-bg');
-    fluidBg.appendChild(canvas);
-    
-    canvas.style.position = 'absolute';
-    canvas.style.top = '0';
-    canvas.style.left = '0';
-    canvas.style.width = '100%';
-    canvas.style.height = '100%';
-    
-    const ctx = canvas.getContext('2d');
-    let width, height;
-    let particles = [];
-    const particleCount = window.innerWidth < 768 ? 30 : 60;
-    
-    function resize() {
-        width = canvas.width = fluidBg.offsetWidth;
-        height = canvas.height = fluidBg.offsetHeight;
-    }
-    
-    window.addEventListener('resize', resize);
-    resize();
-    
-    // Create particles
-    for (let i = 0; i < particleCount; i++) {
-        particles.push({
-            x: Math.random() * width,
-            y: Math.random() * height,
-            size: Math.random() * 3 + 1,
-            speedX: Math.random() * 2 - 1,
-            speedY: Math.random() * 2 - 1,
-            color: `rgba(${Math.floor(Math.random() * 50 + 180)}, ${Math.floor(Math.random() * 50 + 150)}, ${Math.floor(Math.random() * 50 + 200)}, ${Math.random() * 0.3 + 0.1})`
-        });
-    }
-    
-    function animate() {
-        ctx.clearRect(0, 0, width, height);
-        
-        // Update and draw particles
-        for (let i = 0; i < particles.length; i++) {
-            const p = particles[i];
-            
-            // Move particles
-            p.x += p.speedX;
-            p.y += p.speedY;
-            
-            // Bounce off edges
-            if (p.x < 0 || p.x > width) p.speedX *= -1;
-            if (p.y < 0 || p.y > height) p.speedY *= -1;
-            
-            // Draw particles
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-            ctx.fillStyle = p.color;
-            ctx.fill();
-            
-            // Connect particles
-            for (let j = i + 1; j < particles.length; j++) {
-                const p2 = particles[j];
-                const distance = Math.sqrt(Math.pow(p.x - p2.x, 2) + Math.pow(p.y - p2.y, 2));
-                
-                if (distance < 150) {
-                    ctx.beginPath();
-                    ctx.strokeStyle = `rgba(180, 150, 220, ${1 - distance/150})`;
-                    ctx.lineWidth = 0.5;
-                    ctx.moveTo(p.x, p.y);
-                    ctx.lineTo(p2.x, p2.y);
-                    ctx.stroke();
-                }
-            }
-        }
-        
-        requestAnimationFrame(animate);
-    }
-    
-    animate();
-}
